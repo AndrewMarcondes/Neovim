@@ -1,6 +1,6 @@
 require("andrewsSauce.remap")
 require("andrewsSauce.packer")
-print("hello from Andrew's Sauce")
+print("Applying Andrew's Sauce")
 vim.o.number = true
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
