@@ -3,6 +3,12 @@ vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
 vim.keymap.set('n', '<leader>pb', builtin.buffers, {})
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
 vim.keymap.set('n', '<leader>ps', function()
-	builtin.grep_string({ search = vim.fn.input("Grep > ") });
+	builtin.live_grep({ search_dirs = { vim.fn.expand('%:p:h') } })
+end)
+vim.keymap.set('n', '<leader>pS', function()
+	builtin.live_grep({ search_dirs = { vim.fn.expand('~/projects') } })
+end)
+vim.keymap.set('n', '<leader>po', function()
+	builtin.live_grep({ search_dirs = { vim.g.start_cwd } })
 end)
 
