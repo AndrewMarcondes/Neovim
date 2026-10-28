@@ -23,5 +23,16 @@ use {"akinsho/toggleterm.nvim", tag = '*', config = function()
   require("toggleterm").setup()
 end}
 
+use { "williamboman/mason.nvim", config = function()
+  require("mason").setup()
+  local registry = require("mason-registry")
+  for _, pkg_name in ipairs({ "jq" }) do
+    local ok, pkg = pcall(registry.get_package, pkg_name)
+    if ok and not pkg:is_installed() then
+      pkg:install()
+    end
+  end
+end}
+
 end)
 
